@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101b2f" />
+    <meta name="description" content="RSVR secure, passwordless account access." />
+    <title>RSVR — Secure Access</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="brand-panel">
+        <div class="brand-lockup"><span class="brand-mark">R</span><span>RSVR</span></div>
+        <div class="brand-content">
+          <p class="eyebrow">IDENTITY, REIMAGINED</p>
+          <h1>Your identity.<br /><em>Your control.</em></h1>
+          <p class="brand-copy">A quieter, safer way to access what matters. No passwords to remember. No uncertainty about where your account is signed in.</p>
+          <div class="trust-list">
+            <div><span class="trust-icon">✓</span><span>Private by design</span></div>
+            <div><span class="trust-icon">⌁</span><span>Passkey-ready security</span></div>
+            <div><span class="trust-icon">1</span><span>One active device at a time</span></div>
+          </div>
+        </div>
+        <div class="brand-foot"><span class="pulse-dot"></span> SECURITY THAT STAYS IN THE BACKGROUND</div>
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      </aside>
+
+      <main class="main-panel">
+        <div class="mobile-brand"><span class="brand-mark">R</span><span>RSVR</span></div>
+        <section id="auth-view" class="auth-card" aria-labelledby="auth-heading">
+          <div class="card-topline"><span class="secure-label"><span class="mini-shield">◆</span> SECURE ACCESS</span><span class="step-note">01 / 02</span></div>
+          <div class="heading-block">
+            <p class="eyebrow muted-eyebrow">WELCOME TO RSVR</p>
+            <h2 id="auth-heading">Sign in to continue.</h2>
+            <p class="subheading" id="auth-subheading">Your account, protected by a code or your device's biometrics.</p>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Account access">
+            <button class="tab active" id="login-tab" type="button" role="tab" aria-selected="true">Sign in</button>
+            <button class="tab" id="signup-tab" type="button" role="tab" aria-selected="false">Create account</button>
+          </div>
+
+          <form id="login-form" class="form-stack">
+            <label class="field-label" for="login-identifier">Email address or phone number</label>
+            <div class="input-wrap"><span class="input-glyph">@</span><input id="login-identifier" name="identifier" type="text" autocomplete="username" placeholder="you@example.com or +91…" required /></div>
+            <p class="field-hint">Use the email or mobile number linked to your account.</p>
+            <button class="button button-primary" id="send-login-code" type="submit">Continue with a code <span>→</span></button>
+            <div class="separator"><span></span><b>OR</b><span></span></div>
+            <button class="button button-secondary" id="passkey-login" type="button"><span class="fingerprint">◎</span> Continue with Face ID / biometrics</button>
+            <p class="micro-copy">Biometrics are verified by your device. RSVR never receives your fingerprint or face data.</p>
+          </form>
+
+          <form id="signup-form" class="form-stack hidden">
+            <div class="field-grid">
+              <div><label class="field-label" for="signup-surname">Surname</label><div class="input-wrap"><span class="input-glyph">Aa</span><input id="signup-surname" name="surname" type="text" autocomplete="family-name" placeholder="Your surname" minlength="2" maxlength="60" required /></div></div>
+              <div><label class="field-label" for="signup-dob">Date of birth</label><div class="input-wrap"><span class="input-glyph">▦</span><input id="signup-dob" name="dob" type="date" autocomplete="bday" required /></div></div>
+            </div>
+            <label class="field-label" for="signup-identifier">Email address or phone number</label>
+            <div class="input-wrap"><span class="input-glyph">@</span><input id="signup-identifier" name="identifier" type="text" autocomplete="email" placeholder="you@example.com or +91…" required /></div>
+            <p class="field-hint">For phone numbers, include the country code (for example, +91).</p>
+            <button class="button button-primary" type="submit" id="send-signup-code">Create account <span>→</span></button>
+            <p class="micro-copy">Your date of birth is encrypted before it is stored.</p>
+          </form>
+
+          <form id="code-form" class="form-stack hidden">
+            <button class="back-link" type="button" id="back-to-details">← Back</button>
+            <div class="code-symbol">✳</div>
+            <h3>Check your messages.</h3>
+            <p class="code-description" id="code-destination">We sent a six-digit code to your registered contact.</p>
+            <label class="field-label" for="verification-code">6-digit verification code</label>
+            <input class="code-input" id="verification-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="• • • • • •" required />
+            <p class="field-hint">The code expires in 10 minutes. Never share it with anyone.</p>
+            <button class="button button-primary" type="submit" id="verify-code">Verify and continue <span>→</span></button>
+          </form>
+
+          <div id="auth-message" class="message" role="status" aria-live="polite"></div>
+          <div class="card-footer"><span>Protected by modern authentication standards</span><span class="footer-lock">▣</span></div>
+        </section>
+
+        <section id="dashboard-view" class="dashboard-card hidden" aria-labelledby="dashboard-heading">
+          <div class="card-topline"><span class="secure-label"><span class="mini-shield">◆</span> ACCOUNT OVERVIEW</span><span class="status-pill"><span></span> PROTECTED</span></div>
+          <div class="dashboard-heading"><div class="avatar" id="avatar-initial">R</div><div><p class="eyebrow muted-eyebrow">SIGNED IN SUCCESSFULLY</p><h2 id="dashboard-heading">Welcome back.</h2><p class="subheading" id="account-identifier">Your account is secure.</p></div></div>
+          <div class="success-banner"><span class="success-check">✓</span><div><strong>You are securely signed in.</strong><p id="session-notice">This is your only active session.</p></div></div>
+          <div class="security-section">
+            <div class="section-heading"><div><p class="eyebrow muted-eyebrow">YOUR SECURITY</p><h3>Sign-in methods</h3></div><span class="section-number">01</span></div>
+            <div class="security-row"><div class="security-icon">✉</div><div class="security-copy"><strong>One-time verification code</strong><span>Email or SMS · 6 digits · 10-minute expiry</span></div><span class="enabled-tag">ACTIVE</span></div>
+            <div class="security-row"><div class="security-icon">◎</div><div class="security-copy"><strong>Device biometrics / passkey</strong><span id="passkey-status">Not enabled on this account</span></div><button class="text-action" id="enable-passkey" type="button">Enable</button></div>
+          </div>
+          <div class="security-section device-section">
+            <div class="section-heading"><div><p class="eyebrow muted-eyebrow">SESSION CONTROL</p><h3>Active device</h3></div><span class="section-number">02</span></div>
+            <div class="device-card"><div class="device-icon">▣</div><div class="security-copy"><strong id="device-name">This browser</strong><span>Current session · Only active device</span></div><span class="current-tag">CURRENT</span></div>
+            <p class="device-note">Signing in on another device automatically ends this session. Only one authenticated session can remain active at a time.</p>
+          </div>
+          <button class="button button-secondary signout-button" id="sign-out" type="button">Sign out of this device <span>↗</span></button>
+          <div id="dashboard-message" class="message" role="status" aria-live="polite"></div>
+          <div class="card-footer"><span>Account protection is active</span><span class="footer-lock">▣</span></div>
+        </section>
+        <footer class="page-footer"><span>© 2026 RSVR Technologies</span><span>SECURE ACCESS EXPERIENCE</span></footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

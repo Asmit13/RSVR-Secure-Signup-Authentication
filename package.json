@@ -1,0 +1,28 @@
+{
+  "name": "rsvr-secure-auth-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Passwordless authentication demo with OTP, WebAuthn passkeys, one active session and account lockout.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@simplewebauthn/browser": "14.0.0",
+    "@simplewebauthn/server": "14.1.0",
+    "better-sqlite3": "^13.2.0",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
+    "helmet": "^8.3.0",
+    "nodemailer": "^10.6.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
